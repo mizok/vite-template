@@ -4,8 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "serve": "npm run serve:dev",
+    "serve:dev": "vite --mode development",
+    "serve:prod": "vite --mode production",
+    "build:prod": "tsc && vite build --mode production",
+    "build:dev": "tsc && vite build --mode development",
     "preview": "vite preview"
   },
   "devDependencies": {
