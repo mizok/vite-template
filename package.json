@@ -13,6 +13,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.3.3",
+    "@types/ramda": "^0.29.3",
+    "ramda": "^0.29.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
   }

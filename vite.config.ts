@@ -1,17 +1,28 @@
-import { defineConfig, loadEnv} from 'vite'
-import {resolve} from 'path';
+import { UserConfig, defineConfig, loadEnv} from 'vite';
+import { resolve } from 'path';
+import { mergeDeepRight } from 'ramda';
 import { genBuildConfig, genServeConfig, Command} from './config'
 
 export default defineConfig(({ command, mode}) => {
 
     const env = loadEnv(mode, resolve(__dirname,'environment'), '');
 
+    const sharedConfig:UserConfig = {
+        define:{
+            APP_ENV:env
+        }
+    }
+
+    let envConfig;
+
     switch(command){
         case Command.BUILD:
-            return genBuildConfig(mode,env);
+            envConfig = genBuildConfig(mode);
+            break;
         case Command.SERVE:
-            return genServeConfig(mode,env);
-        default:
-            return genServeConfig(mode,env);
+            envConfig = genServeConfig(mode);
+            break;
     }
+
+    return  mergeDeepRight(sharedConfig,envConfig)
 })
