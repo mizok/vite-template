@@ -4,18 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "serve": "npm run serve:dev",
-    "serve:dev": "vite --mode development",
-    "serve:prod": "vite --mode production",
-    "build:prod": "tsc && vite build --mode production",
-    "build:dev": "tsc && vite build --mode development",
-    "preview": "vite preview"
+    "serve": "vite --mode development --port 5500",
+    "build": "tsc && vite build --mode production",
+    "preview": "vite preview --mode production --port 5500"
   },
   "devDependencies": {
     "@types/node": "^20.3.3",
     "@types/ramda": "^0.29.3",
     "ramda": "^0.29.0",
     "typescript": "^5.0.2",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "vite-plugin-html": "^3.2.0"
   }
 }
